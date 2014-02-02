@@ -4,7 +4,7 @@ The simple option for creating a 'slide-aside' navigation menu in your iOS apps.
 
 ## Why
 
-There are many permutations of this kind of control available, on [Cocoa Controls][cocoacontrols] and elsewhere. I've used several, but haven't really liked any. So I wrote my own!
+There are many, many permutations of this kind of control available, on [Cocoa Controls][cocoacontrols] and elsewhere. I've used several, but haven't really liked any. So I wrote my own!
 
 The intention is to be as simple as possible, and include just a very basic set of core features.
 
@@ -23,7 +23,7 @@ YourMenuViewController *menuViewController = [[YourMenuViewController alloc] ini
 Then create your primary content view controller, the main content view for your application, and place inside a navigation controller, if needed.
 
 ```objective-c
-PrimaryViewController = *primaryViewController = [[PrimaryViewController alloc] init];
+YourPrimaryViewController = *primaryViewController = [[YourPrimaryViewController alloc] init];
 UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:primaryViewController];
 ```
 
@@ -57,13 +57,17 @@ From within your content view controllers, you can define a navigation bar butto
 
 Due to the UIViewController category, your view controllers now have a `sideMenuViewController` property you can access. There's also a pan (or swipe) gesture that will automatically be enabled in your view controllers to open/close the side menu. 
 
-There are two properties you can access on your PKHSideMenu object during setup that can be useful if you want to modify the default behavior. The pan (or swipe) gesture is enabled by default, but you can disable it like so:
+**During setup**, there are two properties you can access on your PKHSideMenu object that can be useful if you want to modify the default behavior. The pan (or swipe) gesture is enabled by default, but you can disable it like so:
 
 ```objective-c
 sideMenu.panGestureEnabled = NO;
 ```
 
-And you can also change how far your primary content view controller slides aside to show your menu. You do this by modifying a property on PKHSideMenu, `contentSlidePercentage`, to specify a percentage of the primary view you want to remain on the screen. The default is 30%, which is defined like so: `0.30f`.
+And you can also change how far your primary content view controller slides aside to show your menu. You do this by modifying a property on PKHSideMenu, `contentSlidePercentage`, to specify a percentage of the primary view you want to remain on the screen. The default is 30%, which is defined as: `0.3f`. For example, if you wanted your slid-aside primary content view to cover half the horizontal width of the screen, you'd set this property like:
+
+```objective-c
+sideMenu.contentSlidePercentage = 0.5f;
+```
 
 ## Notes
 
