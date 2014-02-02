@@ -2,6 +2,8 @@
 
 The simple option for creating a 'slide-aside' navigation menu in your iOS apps.
 
+<img src="https://github.com/pkh/PKHSideMenu/raw/master/pkhsidemenu-example-1.gif" alt="RESideMenu Screenshot" width="320" height="570" />
+
 ## Why
 
 There are many, many permutations of this kind of control available, on [Cocoa Controls][cocoacontrols] and elsewhere. I've used several, but haven't really liked any. So I wrote my own!
